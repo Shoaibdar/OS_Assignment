@@ -1,0 +1,90 @@
+/*Question: 4. Consider following and Generate a solution in C to find whether the system is in safe state
+or not?
+Available Processes Allocation     Max
+A B C D              A B C D     A B C D
+1 5 2 0     P0       0 0 1 2     0 0 1 2
+            P1       1 0 0 0     1 7 5 0
+            P2       1 3 5 4     2 3 5 6
+            P3       0 6 3 2     0 6 5 2
+            P4       0 0 1 4     0 6 5 6
+            
+Solution:*/
+ //Sir the solution was done in dev c++ so if you run it in ubuntu we have to just use the stdio header file 
+ //and it works for both the questions THANK YOU
+ 
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+ int n;  //for number of process 
+ int r;  // for number of resources   
+ int i,j,k;
+ int need[10][10],alloc[10][10],max[10][10];  
+ int avail[10],p[10];
+ 
+ printf("\nEnter number of process :");
+ scanf("%d",&n);
+ printf("\n Enter number of resources available : ");
+ scanf("%d",&r);
+ printf("\nEnter instances for resources :\n");
+ 
+ for(i=0;i<r;i++)
+ {  
+ 	printf("R%d ",i+1);
+    scanf("%d",&avail[i]);
+ }
+ 
+ printf("\n Enter allocation matrix  \n");
+ 
+ for(i=0;i<n;i++)
+ {
+ 	printf("p%d",i+1);
+	p[i]=0;
+ 	for(j=0;j<r;j++)
+ 	{
+  		scanf("%d",&alloc[i][j]);
+ 	}
+ }
+ 
+  printf("\n Enter MAX matrix  \n");
+
+ for(i=0;i<n;i++)
+ {
+ 	printf("p%d",i+1);
+ 	for(j=0;j<r;j++)
+ 	{
+  	scanf("%d",&max[i][j]);
+	}
+ }
+
+ for(i=0;i<n;i++)
+ {
+ 	printf("\np%d\t",i+1) ;
+ 	for(j=0;j<r;j++)
+ 	{
+  		need[i][j]=max[i][j]-alloc[i][j];
+  		printf("\t%d",need[i][j]);
+ 	}
+ }
+ 
+ printf("\n\n");
+ int flag=0;
+ 
+ for(i=0;i<n;i++) 
+{ 
+	for(j=0;j<r;j++) 
+	{ 
+		if(avail[j]>=need[i][j]) 
+		flag=1; 
+	else 
+		flag=0; 
+	} 
+} 
+
+if(flag==0) 
+printf("Unsafe State"); 
+else 
+printf("Safe State");
+
+}
