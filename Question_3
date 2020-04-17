@@ -53,6 +53,6 @@ int main(){
       cout << "Error: unable to create thread, " << rc << endl;
       exit(-1);
     }
-  }
+  } 
   pthread_exit(NULL);
 }
