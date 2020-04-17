@@ -1,4 +1,4 @@
-/*Question: 4. Consider following and Generate a solution in C to find whether the system is in safe state
+/*Question: 24. Consider following and Generate a solution in C to find whether the system is in safe state
 or not?
 Available Processes Allocation     Max
 A B C D              A B C D     A B C D
@@ -10,7 +10,7 @@ A B C D              A B C D     A B C D
             
 Solution:*/
  //Sir the solution was done in dev c++ so if you run it in ubuntu we have to just use the stdio header file 
- //and it works for both the questions THANK YOU
+ //and it works properly THANK YOU
  
 #include<iostream>
 #include<stdio.h>
